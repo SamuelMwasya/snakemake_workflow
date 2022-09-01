@@ -127,8 +127,10 @@ rule map_reads:   //we replace the concrete sample with a name 'A' with a wildca
         "notebooks/plot-quals.py.ipynb" //instead of shell command , we use jupyter notebook intergration
       
 ```
+
+The above conda: envs/mapping.yaml contains the following tools/dependencies; and also the channels
 ```
-//The above conda: envs/mapping.yaml contains the following
+
 channels:
   -bioconda
   -conda-forge
