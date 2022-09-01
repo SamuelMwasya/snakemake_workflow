@@ -22,7 +22,7 @@ Snakemake can be installed using Bioconda with the shell command `conda install 
 `conda activate snakemake` 
 
 ### Creating a snakefile
-rule all:
+```rule all:
   input:
     "results/call/all.vcf",
     "results/plots/quals.svg"
@@ -45,4 +45,28 @@ rule map_reads:
     "results/{sample}.sorted.bam"
   conda:
     "envs/mapping.yaml"
-
+  shell:
+    "samtools sort -o {output}{input}"
+    
+  rule call_variants:
+    input:
+      fa="data/genome.fa"
+      bam=expand("results/mapped/{sample}.sorted.bam",sample=SAMPLES)
+   output:
+      "results/calls/all.vcf"
+    conda:
+      "envs/calling.yaml"
+    shell:
+      "bcftools mpileup -f {input.fa}{output}.bam | bcftools call -mv - >{output}"
+      
+    rule plot_quals:
+      input:
+        "results/calls/all.vcf"
+      output:
+        "results/plots/quals.svg"
+      conda:
+        "envs/stats.yaml"
+      notebook:
+        "notebooks/plot-quals.py.ipynb"
+      
+```
