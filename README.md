@@ -24,7 +24,7 @@ Snakemake can be installed using Bioconda with the shell command `conda install 
 To visualize what a snakefile rule does we run `snakemake` with the `-np`
 
 #### DAG
-Also known as declarative acrylic maps
+Also known as declarative acrylic graphs
 
 This defines the route map into which snakemake reasons.
 
