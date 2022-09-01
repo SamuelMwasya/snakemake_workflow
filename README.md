@@ -6,7 +6,7 @@ Snakemake is a workflow engine that provides a readable Phython-based workflow d
 
 ### Snakemake Language
 
-The workflow is denifined in a 'snakefile' through a domain-specific language that is close to standard Python syntax.
+The workflow is denifined in a `snakefile` through a domain-specific language that is close to standard Python syntax.
 
 The workflow is implied by dependencies between the rules that arise from one rule needing an output file of another as an input file.
 
@@ -21,10 +21,10 @@ Snakemake can be installed using Bioconda with the shell command `conda install 
 `conda install snakemake`
 `conda activate snakemake` 
 
-To visualize what a snakefile rule does we run `snakemake` with the `-np`
+To visualize the process or what a snakefile rule does, we run `snakemake` with the `-np`
 
 #### DAG
-Also known as declarative acrylic graphs
+Also known as directed acrylic graphs
 
 This defines the route map into which snakemake reasons.
 
