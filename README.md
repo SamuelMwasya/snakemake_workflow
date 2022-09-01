@@ -50,7 +50,10 @@ channels:
   -defaults
 dependencies:
   -fastqc=0.11.7=5
-  -libgcc-ng=7.2.
+  -libgcc-ng=7.2.0=hdf63c60_3
+  -perl=5.26.2=h470a237_1
+  -openjdk=8.0.152=h46b5887_1
+  ```
 
 
 ### Creating a snakefile
@@ -67,7 +70,7 @@ rule complement:                            //this rule declares the start of a 
      "complement_data/text.txt"             //the outputfile path saved
   shell:                                    //the shell command is defined here
       "cat{input}|tr atcg tagc > {output}"      //this command with take the input file, then pipe it to 'tr' for 'translate' by replacing atcg with tagc which will                                                  result to a complement saved into output 
-
+```
 ##### Example 2
 
 Using wildcards
